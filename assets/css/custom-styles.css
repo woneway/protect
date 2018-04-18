@@ -4,6 +4,8 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background: #323232;
+	overflow:scroll;
+	overflow-y:hidden;
 }
 
  #wrapper {
