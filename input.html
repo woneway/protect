@@ -12,6 +12,21 @@
 <link href="assets/css/custom-styles.css" rel="stylesheet" />
 <!-- Google Fonts-->
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<style type="text/css">
+fieldset {
+    padding: .35em .625em .75em;
+    margin: 0 2px;
+    border: 1px solid silver;
+    border-radius: 8px
+}
+
+legend {
+    padding: .5em;
+    border: 0;
+    width: auto;
+    margin-bottom: 10px
+}
+</style>
 
 <body>
     <div id="wrapper">
@@ -77,20 +92,101 @@
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div class="header">
-                <ol class="breadcrumb">
-                    <li><a href="#">手动输入</a></li>
-                    <li><a href="#">自动输入</a></li>
-                </ol>
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#input1" data-toggle="tab">手动输入</a>
+                    </li>
+                    <li><a href="#input2" data-toggle="tab">自动输入</a></li>
+                </ul>
             </div>
             <div id="page-inner">
-                <!-- /. ROW  -->
-                <div class="row">
-                    <div class="col-xs-12 col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body easypiechart-panel">
-                                <h4>Profit</h4>
-                                <div class="easypiechart" id="easypiechart-blue" data-percent="82"><span class="percent">82%</span>
-                                </div>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="input1">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12">
+                                <form role="form">
+                                    <fieldset>
+                                        <legend>添加节点</legend>
+                                        <div class="col-xs-4 col-md-4">
+                                            <div>
+                                                <label for="userName">用户名</label>
+                                                <input type="text" id="userName" class="form-control" placeholder="请输入用户名" />
+                                            </div>
+                                            <div>
+                                                <label for="userId">用户ID</label>
+                                                <input type="text" id="userId" class="form-control" placeholder="请输入用户ID" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 col-md-8">
+                                            <div>
+                                                <label for="property1">属性1</label>
+                                                <input type="text" id="property1" class="form-control" placeholder="请输入属性" />
+                                            </div>
+                                            <div>
+                                                <label for="property2">属性2</label>
+                                                <input type="text" id="property2" class="form-control" placeholder="请输入属性" />
+                                            </div>
+                                            <div>
+                                                <label for="property3">属性3</label>
+                                                <input type="text" id="property3" class="form-control" placeholder="请输入属性" />
+                                            </div>
+                                            <div>
+                                                <label for="property4">属性4</label>
+                                                <input type="text" id="property4" class="form-control" placeholder="请输入属性" />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12">
+                                <form role="form">
+                                    <fieldset>
+                                        <legend>添加边</legend>
+                                        <div class="col-xs-4 col-md-4">
+                                            <label for="userName">选择用户ID</label>
+                                            <select class="form-control">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-8 col-md-8">
+                                            <div>
+                                                <label for="followId">关注的人ID</label>
+                                                <input type="text" id="followId" class="form-control" placeholder="请输入用户ID" />
+                                            </div>
+                                            <div>
+                                                <label for="frequency1">通信频率</label>
+                                                <input type="text" id="frequency" class="form-control" placeholder="请输入通信频率" />
+                                            </div>
+                                            <div>
+                                                <label for="fansId">粉丝ID</label>
+                                                <input type="text" id="fansId" class="form-control" placeholder="请输入粉丝ID" />
+                                            </div>
+                                            <div>
+                                                <label for="frequency2">通信频率</label>
+                                                <input type="text" id="frequency" class="form-control" placeholder="请输入通信频率" />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <!--/.row-->
+                    </div>
+                    <div class="tab-pane fade" id="input2">
+                        <div class="row" style="margin-top: 10%">
+                            <h1 class="text-center">请上传满足条件的文件</h1>
+                        </div>
+                        <div class="row text-center" style="margin-top: 30px;">
+                            <input id="lefile" type="file" style="display:none">
+                            <div class="input-append">
+                                <input id="photoCover" class="input-large" type="text" style="height:30px;">
+                                <a class="btn" onclick="$('input[id=lefile]').click();">选择</a>
                             </div>
                         </div>
                     </div>
@@ -122,6 +218,11 @@
     <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
     <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
+    <script type="text/javascript">
+    $('input[id=lefile]').change(function() {
+        $('#photoCover').val($(this).val());
+    });
+    </script>
 </body>
 
 </html>
